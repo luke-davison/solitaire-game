@@ -1,0 +1,30 @@
+{
+  "name": "geocache-solitaire-backend",
+  "version": "0.1.2",
+  "description": "Server to host a solitaire game that will reveal a geocache coordinates",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luke-davison/geocache-minesweeper.git"
+  },
+  "author": "luke-davison",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.11.0",
+    "superagent": "^3.5.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.1"
+  }
+}
