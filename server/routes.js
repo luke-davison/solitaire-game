@@ -3,10 +3,12 @@ const { getGame1Deck, getGame2Deck } = require('./newGame')
 var express = require('express')
 var router = express.Router()
 
+const game1Coordinates = String(process.env.game1Coordinates)
+
 router.post('/submit', function (req, res) {
   const game = Number(req.body.game)
   if (game === 1) {
-    res.send({message: 'You win.  The coordinates are: ........'})
+    res.send({message: 'You win.  The coordinates are: ' + game1Coordinates})
   } else {
     res.send({message: 'Did you cheat?'})
   }

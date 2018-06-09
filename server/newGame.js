@@ -13,30 +13,38 @@ function getGame1Deck () {
 }
 
 function getGame2Deck () {
-  const predefinedPositions = [
-    { position: 5, value: 8 },
-    { position: 8, value: 5 },
-    { position: 11, value: 7 },
-    { position: 14, value: 1 },
-    { position: 17, value: 5 },
-    { position: 20, value: 7 },
-    { position: 23, value: 1 },
-    { position: 4, value: 2 },
-    { position: 7, value: 1 },
-    { position: 10, value: 6 },
-    { position: 13, value: 4 },
-    { position: 16, value: 7 },
-    { position: 19, value: 3 },
-    { position: 22, value: 10 }
-  ]
+  const coordinateCards = String(process.env.game1Coordinates).split('').map(num => parseInt(num));
+  const predefinedPositions = []
+  for (let i = 0; i < coordinateCards; i++) {
+    let position = 1
+    switch (i) {
+      case 0: position = 19; break
+      case 1: position = 16; break
+      case 2: position = 13; break
+      case 3: position = 10; break
+      case 4: position = 7; break
+      case 5: position = 4; break
+      case 6: position = 23; break
+      case 7: position = 20; break
+      case 8: position = 17; break
+      case 9: position = 14; break
+      case 10: position = 11; break
+      case 11: position = 8; break
+      case 12: position = 5; break
+      case 13: position = 3; break
+      case 14: position = 2; break
+    }
+    predefinedPositions.push({position, value: coordinateCards[i]})
+  }
   const allCards = []
   for (let i = 0; i < 52; i++) {
     allCards.push(getCardDetails(i))
   }
+
   predefinedPositions.forEach(position => {
     const possibleCards = allCards.reduce((arr, card, i) => {
       if (card.value === position.value) {
-        arr.push({ oldPosition: i, card })
+        arr.push({oldPosition: i, card})
       }
       return arr
     }, [])
@@ -49,12 +57,12 @@ function getGame2Deck () {
   for (let i = 0; i < 52; i++) {
     const alreadyDefined = predefinedPositions.find(position => position.position === i)
     if (alreadyDefined && alreadyDefined.card) {
-      deck.push(alreadyDefined.card.cardId)
+      deck.push(alreadyDefined.card)
     } else {
-      deck.push(allCards.splice(Math.floor(Math.random() * allCards.length), 1)[0].cardId)
+      deck.push(allCards.splice(Math.floor(Math.random() * allCards.length), 1)[0])
     }
   }
-  return deck
+  return deck.map(obj => obj.cardId)
 }
 
 module.exports = {getGame1Deck, getGame2Deck}
