@@ -14,7 +14,6 @@ function getGame1Deck () {
 
 function getGame2Deck () {
   const coordinateCards = String(process.env.game2Coordinates || '374912317521234').split('').map(num => parseInt(num))
-  console.log(coordinateCards)
   const predefinedPositions = []
   for (let i = 0; i < coordinateCards.length; i++) {
     let position = 1
@@ -37,7 +36,6 @@ function getGame2Deck () {
     }
     predefinedPositions.push({position, value: coordinateCards[i]})
   }
-  console.log(JSON.stringify(predefinedPositions))
   const allCards = []
   for (let i = 0; i < 52; i++) {
     allCards.push(getCardDetails(i))

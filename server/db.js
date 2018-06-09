@@ -7,7 +7,6 @@ function updateCount () {
   knex('totals')
     .select()
     .then(row => {
-      console.log(row)
       if (!row.length) {
         knex('totals')
           .insert({attempts: 1})
