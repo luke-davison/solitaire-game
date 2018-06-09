@@ -13,7 +13,8 @@ function getGame1Deck () {
 }
 
 function getGame2Deck () {
-  const coordinateCards = String(process.env.game2Coordinates).split('').map(num => parseInt(num))
+  const coordinateCards = String(process.env.game2Coordinates || '374912317521234').split('').map(num => parseInt(num))
+  console.log(coordinateCards)
   const predefinedPositions = []
   for (let i = 0; i < coordinateCards; i++) {
     let position = 1
