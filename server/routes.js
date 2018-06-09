@@ -1,4 +1,5 @@
 const { getGame1Deck, getGame2Deck } = require('./newGame')
+const { updateCount } = require('./db')
 
 var express = require('express')
 var router = express.Router()
@@ -10,18 +11,18 @@ router.post('/submit', function (req, res) {
   if (game === 1) {
     res.send({message: 'You win.  The coordinates are: ' + game1Coordinates})
   } else {
-    res.send({message: 'Did you cheat?'})
+    res.send({message: 'Well, you beat the game but you didn\'t find the coordinates.  Try looking a bit harder'})
   }
 })
 
 router.get('/game1', function (req, res) {
-  console.log('getting game 1 deck')
+  updateCount()
   const deck = getGame1Deck()
   res.send({cardIds: deck})
 })
 
 router.get('/game2', function (req, res) {
-  console.log('getting game 2 deck')
+  updateCount()
   const deck = getGame2Deck()
   res.send({cardIds: deck})
 })

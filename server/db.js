@@ -6,12 +6,18 @@ const knex = require('knex')(config)
 function updateCount () {
   knex('totals')
     .select()
-    .returning('attempts')
-    .then(attempts => {
-      knex('totals')
-      .select()
-      .update({attempts: attempts++})
-      .then(() => console.log('Number of attempts:', attempts))
+    .then(row => {
+      console.log(row)
+      if (!row.length) {
+        knex('totals')
+          .insert({attempts: 1})
+          .then(() => console.log('Number of attempts: 1'))
+      } else {
+        knex('totals')
+        .select()
+        .update({attempts: row[0].attempts + 1})
+        .then(() => console.log('Number of attempts:', row[0].attempts + 1))
+      }
     })
 }
 

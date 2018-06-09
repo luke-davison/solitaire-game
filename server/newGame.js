@@ -16,27 +16,28 @@ function getGame2Deck () {
   const coordinateCards = String(process.env.game2Coordinates || '374912317521234').split('').map(num => parseInt(num))
   console.log(coordinateCards)
   const predefinedPositions = []
-  for (let i = 0; i < coordinateCards; i++) {
+  for (let i = 0; i < coordinateCards.length; i++) {
     let position = 1
     switch (i) {
-      case 0: position = 19; break
-      case 1: position = 16; break
-      case 2: position = 13; break
-      case 3: position = 10; break
-      case 4: position = 7; break
-      case 5: position = 4; break
-      case 6: position = 23; break
-      case 7: position = 20; break
-      case 8: position = 17; break
-      case 9: position = 14; break
-      case 10: position = 11; break
-      case 11: position = 8; break
-      case 12: position = 5; break
+      case 0: position = 24; break
+      case 1: position = 26; break
+      case 2: position = 29; break
+      case 3: position = 33; break
+      case 4: position = 38; break
+      case 5: position = 44; break
+      case 6: position = 51; break
+      case 7: position = 21; break
+      case 8: position = 18; break
+      case 9: position = 15; break
+      case 10: position = 12; break
+      case 11: position = 9; break
+      case 12: position = 6; break
       case 13: position = 3; break
-      case 14: position = 2; break
+      case 14: position = 0; break
     }
     predefinedPositions.push({position, value: coordinateCards[i]})
   }
+  console.log(JSON.stringify(predefinedPositions))
   const allCards = []
   for (let i = 0; i < 52; i++) {
     allCards.push(getCardDetails(i))
