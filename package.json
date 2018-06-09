@@ -4,11 +4,13 @@
   "description": "Server to host a solitaire game that will reveal a geocache coordinates",
   "main": "index.js",
   "scripts": {
+    "knex": "knex",
+    "postinstall": "knex migrate:latest",
     "start": "node server/index"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luke-davison/geocache-minesweeper.git"
+    "url": "git+https://github.com/luke-davison/solitaire-game.git"
   },
   "author": "luke-davison",
   "license": "ISC",
