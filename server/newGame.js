@@ -1,5 +1,15 @@
 const getCardDetails = require('./getCardDetails')
 
+function getGameDeck (game) {
+  if (game === 1) {
+    return getGame1Deck()
+  }
+  if (game === 2) {
+    return getGame2Deck()
+  }
+  return []
+}
+
 function getGame1Deck () {
   const allCards = []
   for (let i = 0; i < 52; i++) {
@@ -65,4 +75,4 @@ function getGame2Deck () {
   return deck.map(obj => obj.cardId)
 }
 
-module.exports = {getGame1Deck, getGame2Deck}
+module.exports = {getGameDeck}
