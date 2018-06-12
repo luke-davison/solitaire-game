@@ -29,11 +29,11 @@ router.post('/getdeck', function (req, res) {
 })
 
 router.get('/', function (req, res) {
-  return res.sendFile('index.html');
+  return res.sendFile(path.resolve(__dirname, './public', 'index.html'));
 })
 
 router.get('*', function (req, res) {
-  return res.sendFile('index.html');
+  return res.sendFile(path.resolve(__dirname, './public', 'index.html'));
 })
 
 module.exports = router
