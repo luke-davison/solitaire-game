@@ -27,4 +27,8 @@ router.get('/getdeck', function (req, res) {
   res.send({cardIds: deck})
 })
 
+router.get('/', function (req, res) {
+  res.render('index')
+})
+
 module.exports = router

@@ -9,7 +9,7 @@ const server = express()
 server.use(bodyParser.json())
 
 // Routes
-server.use(express.static('public'))
 server.use('/', routes)
+server.use(express.static('public'))
 
 module.exports = server
