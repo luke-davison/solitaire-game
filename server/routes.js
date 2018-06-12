@@ -19,12 +19,20 @@ router.post('/submit', function (req, res) {
 
 router.post('/getdeck', function (req, res) {
   let game = parseInt(req.query.game)
-  if (!game) {
+  if (!game || game > 2 || game < 1) {
     game = 1
   }
   updateCount(game)
   const deck = getGameDeck(game)
   return res.send({cardIds: deck})
+})
+
+router.get('/', function (req, res) {
+  return res.send('index')
+})
+
+router.get('*', function (req, res) {
+  return res.send('index')
 })
 
 module.exports = router
