@@ -17,18 +17,14 @@ router.post('/submit', function (req, res) {
   return res.send({message: 'Something strange has happened.  Either you tried cheating and failed badly or there has been an error'})
 })
 
-router.get('/getdeck', function (req, res) {
+router.post('/getdeck', function (req, res) {
   let game = parseInt(req.query.game)
   if (!game) {
     game = 1
   }
   updateCount(game)
   const deck = getGameDeck(game)
-  res.send({cardIds: deck})
-})
-
-router.get('/', function (req, res) {
-  res.render('index')
+  return res.send({cardIds: deck})
 })
 
 module.exports = router

@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
 
 const routes = require('./routes')
 
@@ -9,7 +10,8 @@ const server = express()
 server.use(bodyParser.json())
 
 // Routes
-server.use('/', routes)
 server.use(express.static('public'))
+server.use('/', routes)
+
 
 module.exports = server
