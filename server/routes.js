@@ -1,6 +1,7 @@
 const { getGameDeck } = require('./newGame')
 const { updateCount } = require('./db')
 
+const path = require('path')
 var express = require('express')
 var router = express.Router()
 
