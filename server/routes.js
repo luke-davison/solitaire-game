@@ -13,7 +13,7 @@ router.post('/submit', function (req, res) {
   //   return res.send({message: 'Congratulations!.  The coordinates are: ' + game1Coordinates})
   // }
   if (game === 2) {
-    return res.send({message: 'Well, you beat the game but you didn\'t find the coordinates.  Try looking a bit harder'})
+    return res.send({message: 'Well done on completing the game.  There are no co-ordinates here.  Try again and pay more attention to the cards.'})
   }
   return res.send({message: 'Something strange has happened.  Either you tried cheating and failed badly or there has been an error'})
 })
@@ -29,11 +29,11 @@ router.post('/getdeck', function (req, res) {
 })
 
 router.get('/', function (req, res) {
-  return res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
+  return res.sendFile(path.resolve(__dirname, '../public', 'index.html'))
 })
 
 router.get('*', function (req, res) {
-  return res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
+  return res.sendFile(path.resolve(__dirname, '../public', 'index.html'))
 })
 
 module.exports = router
