@@ -4,13 +4,13 @@ const { updateCount } = require('./db')
 var express = require('express')
 var router = express.Router()
 
-const game1Coordinates = String(process.env.game1Coordinates || '374912317521234')
+// const game1Coordinates = String(process.env.game1Coordinates || '374912317521234')
 
 router.post('/submit', function (req, res) {
   const game = Number(req.body.game)
-  if (game === 1) {
-    return res.send({message: 'Congratulations!.  The coordinates are: ' + game1Coordinates})
-  }
+  // if (game === 1) {
+  //   return res.send({message: 'Congratulations!.  The coordinates are: ' + game1Coordinates})
+  // }
   if (game === 2) {
     return res.send({message: 'Well, you beat the game but you didn\'t find the coordinates.  Try looking a bit harder'})
   }
