@@ -4,8 +4,6 @@
   "description": "Server to host a solitaire game that will reveal a geocache coordinates",
   "main": "index.js",
   "scripts": {
-    "knex": "knex",
-    "postinstall": "knex migrate:latest",
     "start": "node server/index"
   },
   "repository": {
@@ -27,9 +25,6 @@
   "dependencies": {
     "body-parser": "^1.16.0",
     "dotenv": "^4.0.0",
-    "express": "^4.14.1",
-    "knex": "^0.14.6",
-    "pg": "^7.4.3",
-    "sqlite3": "^4.0.0"
+    "express": "^4.14.1"
   }
 }
