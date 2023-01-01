@@ -1,1 +1,1 @@
-# geocache-minesweeper
+# solitaire-game
